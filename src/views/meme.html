@@ -1,9 +1,32 @@
+<!--
+MIT License
+
+Copyright (c) 2025 FIDIL
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Meme!</title>
+    <title>You Know Why!</title>
     <link href="/css/styles.css" rel="stylesheet">
     <meta property="og:title" content="Check out this meme!">
     <meta property="og:description" content="Someone shared a meme with you">
@@ -19,8 +42,7 @@
         <div class="max-w-4xl mx-auto">
             <!-- Header -->
             <div class="text-center mb-8">
-                <h1 class="text-3xl font-bold text-gray-800 mb-2">🎭 Surprise Meme!</h1>
-                <p class="text-gray-600">Someone shared this meme with you</p>
+                <h1 class="text-3xl font-bold text-gray-800 mb-2">🖕 You Know Why!</h1>
             </div>
 
             <!-- Meme Container -->
@@ -42,7 +64,7 @@
                 <div class="bg-gray-50 px-6 py-4 border-t">
                     <div class="flex justify-between items-center text-sm text-gray-600">
                         <span>👀 Views: {{VIEW_COUNT}}</span>
-                        <span>🎲 Random meme from our collection</span>
+
                     </div>
                 </div>
             </div>
@@ -51,13 +73,13 @@
             <div class="text-center mt-8 space-y-4">
                 <div>
                     <a href="/" class="btn-primary text-lg px-6 py-3">
-                        🎲 Generate Your Own Meme Link
+                        🎲 Send your own fuck you
                     </a>
                 </div>
                 
                 <div class="space-x-4">
                     <button onclick="shareMeme()" class="btn-secondary">
-                        📤 Share This Meme
+                        📤 Return the favor
                     </button>
                     <button onclick="downloadMeme()" class="btn-secondary">
                         💾 Download Image
@@ -65,16 +87,7 @@
                 </div>
             </div>
 
-            <!-- Fun Facts -->
-            <div class="mt-12 text-center">
-                <div class="card max-w-md mx-auto">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-3">🎉 Fun Fact</h3>
-                    <p class="text-gray-600 text-sm">
-                        This meme was randomly selected from our collection of internet classics. 
-                        Each generated link shows a different meme!
-                    </p>
-                </div>
-            </div>
+
         </div>
     </div>
 

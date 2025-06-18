@@ -2,6 +2,7 @@
   "name": "faas",
   "version": "0.0.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "start": "node dist/server.js",
     "dev": "nodemon src/server.ts",
