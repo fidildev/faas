@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Meme!</title>
+    <link href="/css/styles.css" rel="stylesheet">
+    <meta property="og:title" content="Check out this meme!">
+    <meta property="og:description" content="Someone shared a meme with you">
+    <meta property="og:image" content="{{MEME_URL}}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Check out this meme!">
+    <meta name="twitter:description" content="Someone shared a meme with you">
+    <meta name="twitter:image" content="{{MEME_URL}}">
+</head>
+<body class="bg-gradient-to-br from-purple-50 to-pink-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-gray-800 mb-2">🎭 Surprise Meme!</h1>
+                <p class="text-gray-600">Someone shared this meme with you</p>
+            </div>
+
+            <!-- Meme Container -->
+            <div class="meme-container">
+                <div class="text-center p-6">
+                    <img src="{{MEME_URL}}" alt="Shared meme"
+                         class="max-w-full h-auto rounded-lg shadow-lg mx-auto"
+                         style="max-height: 80vh;"
+                         onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;text-center p-8 bg-gray-100 rounded-lg&quot;><h3 class=&quot;text-xl font-bold text-gray-700 mb-2&quot;>🚫 Meme Failed to Load</h3><p class=&quot;text-gray-600&quot;>Sorry, this meme couldn&apos;t be displayed. Try generating a new link!</p></div>';">
+                    <noscript>
+                        <div class="text-center p-8 bg-gray-100 rounded-lg">
+                            <h3 class="text-xl font-bold text-gray-700 mb-2">🚫 Meme Failed to Load</h3>
+                            <p class="text-gray-600">Sorry, this meme couldn't be displayed. Try generating a new link!</p>
+                        </div>
+                    </noscript>
+                </div>
+                
+                <!-- Stats -->
+                <div class="bg-gray-50 px-6 py-4 border-t">
+                    <div class="flex justify-between items-center text-sm text-gray-600">
+                        <span>👀 Views: {{VIEW_COUNT}}</span>
+                        <span>🎲 Random meme from our collection</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="text-center mt-8 space-y-4">
+                <div>
+                    <a href="/" class="btn-primary text-lg px-6 py-3">
+                        🎲 Generate Your Own Meme Link
+                    </a>
+                </div>
+                
+                <div class="space-x-4">
+                    <button onclick="shareMeme()" class="btn-secondary">
+                        📤 Share This Meme
+                    </button>
+                    <button onclick="downloadMeme()" class="btn-secondary">
+                        💾 Download Image
+                    </button>
+                </div>
+            </div>
+
+            <!-- Fun Facts -->
+            <div class="mt-12 text-center">
+                <div class="card max-w-md mx-auto">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">🎉 Fun Fact</h3>
+                    <p class="text-gray-600 text-sm">
+                        This meme was randomly selected from our collection of internet classics. 
+                        Each generated link shows a different meme!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function shareMeme() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Check out this meme!',
+                    text: 'Someone shared a funny meme with you',
+                    url: window.location.href
+                });
+            } else {
+                // Fallback: copy URL to clipboard
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Link copied to clipboard!');
+                });
+            }
+        }
+
+        function downloadMeme() {
+            const img = document.querySelector('img');
+            const link = document.createElement('a');
+            link.href = img.src;
+            link.download = 'meme.jpg';
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Add some fun animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const img = document.querySelector('img');
+            img.addEventListener('load', function() {
+                this.style.opacity = '0';
+                this.style.transform = 'scale(0.8)';
+                this.style.transition = 'all 0.5s ease';
+                
+                setTimeout(() => {
+                    this.style.opacity = '1';
+                    this.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
